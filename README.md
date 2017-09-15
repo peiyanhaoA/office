@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+﻿<<<<<<< HEAD
 # vue-office
 这是个vue文件
 =======
@@ -33,3 +33,6 @@ npm test
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 >>>>>>> 重写代码与逻辑
+
+
+这是一个智能办软件，使用的是 vue 框架
