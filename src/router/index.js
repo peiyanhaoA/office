@@ -5,15 +5,15 @@ import Home from '@/components/home'
 import beijing from '@/components/beijing'
 import nanjing from '@/components/nanjing'
 import console from '@/components/console'
+import shanghai from '@/components/shanghai'
+import wuzhen from '@/components/wuzhen'
 
 Vue.use(Router)
 Vue.directive('drag', function (el) {
   let c = el
   c.onmousedown = function (e) {
-    let z = 1
     let left = e.clientX - c.offsetLeft
     let top = e.clientY - c.offsetTop
-    c.style.zIndex = z
     document.onmousemove = function (e) {
       let l = e.clientX - left
       let t = e.clientY - top
@@ -37,32 +37,24 @@ Vue.directive('drag', function (el) {
       }
     }
     document.onmouseup = function () {
-      c.style.zIndex = 0
       document.onmousemove = null
     }
   }
 })
 export default new Router({
   mode: 'history',
+  base: __dirname,
   routes: [
-    {
-      path: '/',
-      name: 'login',
-      component: Login
-    },
-    {
-      path: '/login',
-      component: Login
-    },
+    {path: '/', name: 'login', component: Login},
+    {path: '/login', component: Login},
     {path: '/home',
-      name: 'home',
       component: Home,
       children: [
-        {path: '/home', name: 'beijing', component: beijing},
-        {path: 'beijing', component: beijing},
-        {path: 'nanjing', component: nanjing}
-      ]
-    },
+        {path: '/home/beijing', name: 'beijing', component: beijing},
+        {path: '/home/nanjing', name: 'nanjing', component: nanjing},
+        {path: '/home/shanghai', name: 'shanghai', component: shanghai},
+        {path: '/home/wuzhen', name: 'wuzhen', component: wuzhen}
+      ]},
     {path: '/console', component: console}
   ]
 })
